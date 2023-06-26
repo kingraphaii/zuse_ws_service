@@ -1,0 +1,8 @@
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\bin\Debug\zuse_ws_service.exe.config
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\bin\Debug\zuse_ws_service.exe
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\bin\Debug\zuse_ws_service.pdb
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\obj\Debug\zuse_ws_service.csproj.AssemblyReference.cache
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\obj\Debug\zuse_ws_service.csproj.SuggestedBindingRedirects.cache
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\obj\Debug\zuse_ws_service.csproj.CoreCompileInputs.cache
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\obj\Debug\zuse_ws_service.exe
+C:\Users\Percival.Rapha\source\repos\zuse_ws_service\zuse_ws_service\obj\Debug\zuse_ws_service.pdb
