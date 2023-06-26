@@ -11,6 +11,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace zuse_ws_service
 {
@@ -20,6 +22,7 @@ namespace zuse_ws_service
         private Task webSocketTask;
         private NotifyIcon notifyIcon;
         private ContextMenu contextMenu;
+        private string connectionString = "Server=localhost;Database=sakila_dev;User Id=kingraphaii;Password=zuseTestPwd01;";
         public Service1()
         {
             InitializeComponent();
@@ -77,14 +80,14 @@ namespace zuse_ws_service
                         }
                         catch (Exception ex)
                         {
-                            // Handle WebSocket connection errors
+                            
                         }
                     }
                 }, cancellationTokenSource.Token);
             }
             catch (Exception ex)
             {
-                // Handle any startup errors
+                // TODO: log error
             }
 
         }
@@ -97,7 +100,7 @@ namespace zuse_ws_service
 
             if (webSocketTask != null && !webSocketTask.Wait(TimeSpan.FromSeconds(5)))
             {
-                // Handle timeout or any other cleanup logic
+              // TODO: handle
             }
 
             cancellationTokenSource?.Dispose();
@@ -111,16 +114,34 @@ namespace zuse_ws_service
 
         private void OpenMenuItem_Click(object sender, EventArgs e)
         {
-            // Implement the logic to open your application window or perform any desired action
-            // ...
+            
         }
 
         private void ExitMenuItem_Click(object sender, EventArgs e)
         {
-            // Implement the logic to gracefully exit your service application
-            // This could include stopping any running processes, releasing resources, etc.
-            // Then call the Stop method to stop the service
+          
             Stop();
+        }
+
+        private string QueryDatabaseToJSON()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM actor";
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+
+                connection.Close();
+
+                // Convert DataTable to JSON
+                string jsonData = JsonConvert.SerializeObject(dataTable);
+                return jsonData;
+            }
         }
     }
 }
